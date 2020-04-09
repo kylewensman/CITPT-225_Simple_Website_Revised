@@ -1,0 +1,67 @@
+<!-- <img id="headerimg" class="veryrounded" src="{{ "img/header_template.png" | relURL }}" alt=""> -->
+<!-- <header id="header"> -->
+    
+    <!-- <nav class="navbar"> -->
+        <!-- <div class="navbar-start">
+            <h1 class="navbar-item title is-1">About Kyle</h1>
+        </div>
+        <div class="navbar-end">
+        <ul class="navbar-item">
+            {{- $pages := slice .Site.Home -}}
+            {{- $pages = $pages | append .Site.RegularPages.ByWeight -}}
+            {{ range $pages }}
+                <li>
+                    {{- if eq . $ -}}
+                        <a href="{{ .Site.BaseURL }}">{{ .Title }}</a>
+                    {{- else -}}
+                        <a href="{{ with .Params.actualurl }}{{ . | relURL }}{{ else }}{{ .Permalink }}{{ end }}">{{ .Title }}</a>
+                    {{- end -}}
+                </li>
+            {{- end }}
+        </ul> -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand navbar-start">
+                    <a href="#" class="navbar-item title is-1">About Kyle</a>
+                    <span class="navbar-burger burger" data-target="navMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navMenu" class="navbar-menu navbar-end">
+                    <!-- <a href="#" class="navbar-item is-active">Link</a>
+                    <a href="#" class="navbar-item">Link</a>
+                    <a href="#" class="navbar-item">Link</a>
+                    <a href="#" class="navbar-item">Link</a>
+                    <a href="#" class="navbar-item">Link</a> -->
+                    <ul class="navbar-item">
+                        {{- $pages := slice .Site.Home -}}
+                        {{- $pages = $pages | append .Site.RegularPages.ByWeight -}}
+                        {{ range $pages }}
+                            <li>
+                                {{- if eq . $ -}}
+                                    <a class="navbar-item" href="{{ .Site.BaseURL }}">{{ .Title }}</a>
+                                {{- else -}}
+                                    <a class="navbar-item" href="{{ with .Params.actualurl }}{{ . | relURL }}{{ else }}{{ .Permalink }}{{ end }}">{{ .Title }}</a>
+                                {{- end -}}
+                            </li>
+                        {{- end }}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- </div>
+    </nav> -->
+<!-- </header> -->
+<script>
+    (function() {
+        const links = document.getElementsByTagName('a')
+        const currentUrl = location.href
+        for (const link of links) {
+            if (link.href === currentUrl) {
+                link.classList.add('selected')
+            }
+        }
+    }())
+</script>
